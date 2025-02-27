@@ -423,13 +423,11 @@ section {
 
 /* Hero social icons */
 .hero__social {
-    position: static;
-    bottom: auto;
-    right: auto;
-    display: flex;
-    justify-content: center;
-    margin-top: var(--space-md);
+    position: absolute;
+    bottom: var(--space-md);
+    right: var(--space-lg);
     z-index: 10;
+    display: flex;
     gap: var(--space-sm);
 }
 
@@ -1004,33 +1002,6 @@ section {
     }
 }
 
-/* For desktop, reposition the hero container for better layout */
-@media (min-width: 769px) {
-    .hero .container {
-        flex-direction: column;
-        align-items: flex-end; /* Align content to the right */
-    }
-    
-    .hero__content {
-        width: 100%;
-        max-width: 700px;
-        margin-left: auto;
-        text-align: left;
-        padding-right: 0;
-    }
-    
-    .hero__form-container {
-        margin-top: var(--space-md);
-        max-width: 380px;
-    }
-    
-    /* Position social icons under the form */
-    .hero__social {
-        margin-top: var(--space-sm);
-        justify-content: flex-end;
-    }
-}
-
 @media (max-width: 768px) {
     /* Fix header for smaller screens */
     .header__logo h1 {
@@ -1104,12 +1075,10 @@ section {
     .hero .container {
         flex-direction: column;
         gap: var(--space-lg);
-        align-items: center;
     }
     
     .hero__content {
         max-width: 100%;
-        width: 100%;
         padding-right: 0;
         text-align: center;
         margin-left: 0;
@@ -1121,7 +1090,6 @@ section {
     
     .hero__form-container {
         width: 100%;
-        max-width: 380px;
     }
     
     .floating-form {
@@ -1129,9 +1097,12 @@ section {
         animation: none; /* Remove float animation on mobile */
     }
     
-    /* Center social icons on mobile */
+    /* Fix hero social icons position */
     .hero__social {
-        width: 100%;
+        position: relative;
+        bottom: auto;
+        right: auto;
+        margin-top: var(--space-md);
         justify-content: center;
     }
     
