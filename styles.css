@@ -1003,62 +1003,204 @@ section {
 }
 
 @media (max-width: 768px) {
-    .menu-toggle {
-        display: block;
+    /* Fix header for smaller screens */
+    .header__logo h1 {
+        font-size: 1.2rem;
     }
     
+    .header__logo span {
+        font-size: 0.9rem;
+    }
+    
+    /* Fix navigation menu */
     .header__nav {
         position: fixed;
-        top: 80px;
+        top: 70px;
         left: 0;
         width: 100%;
         background-color: var(--color-white);
         height: 0;
         overflow: hidden;
-        transition: height var(--transition-medium);
+        transition: all var(--transition-medium);
         box-shadow: var(--shadow-md);
+        opacity: 0;
+        z-index: 1001;
     }
     
     .header__nav.active {
         height: auto;
+        padding: var(--space-md) 0;
+        opacity: 1;
     }
     
     .nav__list {
         flex-direction: column;
-        padding: var(--space-md);
+        padding: 0 var(--space-md);
     }
     
     .nav__item {
         margin: var(--space-xs) 0;
+        width: 100%;
+    }
+    
+    .nav__link {
+        display: block;
+        padding: var(--space-xs) 0;
+    }
+
+    /* Fix social links in header */
+    .header__social {
+        display: none; /* Hide header social links on mobile */
+    }
+    
+    /* Enhance menu toggle button */
+    .menu-toggle {
+        display: block;
+        font-size: 1.4rem;
+        margin-left: auto;
+        margin-right: var(--space-xs);
+        color: var(--color-primary);
+        position: relative;
+        z-index: 1002;
+    }
+    
+    /* Hero Section Improvements */
+    .hero {
+        padding-top: var(--space-md);
+        padding-bottom: var(--space-md);
+        height: auto;
+        min-height: 500px;
     }
     
     .hero .container {
-        flex-direction: column-reverse;
-        text-align: center;
+        flex-direction: column;
+        gap: var(--space-lg);
     }
     
     .hero__content {
-        margin: var(--space-lg) 0;
+        max-width: 100%;
+        padding-right: 0;
+        text-align: center;
+        margin-left: 0;
+    }
+    
+    .hero__tagline {
+        font-size: 2rem;
     }
     
     .hero__form-container {
-        width: 90%;
-        max-width: 380px;
-        margin: 0 auto;
+        width: 100%;
     }
     
+    .floating-form {
+        width: 100%;
+        animation: none; /* Remove float animation on mobile */
+    }
+    
+    /* Fix hero social icons position */
+    .hero__social {
+        position: relative;
+        bottom: auto;
+        right: auto;
+        margin-top: var(--space-md);
+        justify-content: center;
+    }
+    
+    /* About Section Improvements */
+    .about__content {
+        flex-direction: column;
+    }
+    
+    .about__image {
+        margin-bottom: var(--space-md);
+    }
+    
+    .about__subtitle {
+        font-size: 1.4rem;
+        text-align: center;
+    }
+    
+    .about__text .btn {
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+    
+    /* Achievements Section Improvements */
+    .achievements__content {
+        flex-direction: column-reverse;
+    }
+    
+    .achievements__image {
+        margin-bottom: var(--space-md);
+    }
+    
+    .achievements__title {
+        text-align: center;
+    }
+    
+    .achievements__list {
+        padding-left: 0;
+    }
+    
+    .achievements__list li {
+        padding-left: 1.5rem;
+    }
+    
+    /* Impact Areas Section Improvements */
     .impact__grid {
         grid-template-columns: 1fr;
     }
     
+    .impact__card {
+        height: auto;
+    }
+    
+    /* Partners Section Improvements */
     .partners__grid {
         gap: var(--space-md);
     }
     
-    .partner__logo {
-        max-width: 120px;
+    .partner {
+        flex: 0 0 40%;
     }
     
+    .partner__logo {
+        max-width: 100px;
+    }
+    
+    /* News Section Improvements */
+    .news__grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .news__card {
+        margin-bottom: var(--space-md);
+    }
+    
+    /* Contact Section Improvements */
+    .contact__content {
+        flex-direction: column;
+    }
+    
+    .contact__form-container {
+        width: 100%;
+    }
+    
+    .contact__form {
+        padding: var(--space-md);
+    }
+    
+    .form__group--half {
+        grid-template-columns: 1fr;
+        gap: var(--space-sm);
+    }
+    
+    .contact__logos {
+        justify-content: center;
+    }
+    
+    /* Footer improvements */
     .footer__content {
         flex-direction: column;
         text-align: center;
@@ -1070,29 +1212,98 @@ section {
     }
 }
 
-@media (max-width: 576px) {
+/* Further improvements for very small screens */
+@media (max-width: 480px) {
     html {
         font-size: 14px;
     }
     
-    .hero {
-        min-height: 500px;
+    section {
+        padding: var(--space-md) 0;
+    }
+    
+    .container {
+        padding: 0 var(--space-sm);
+    }
+    
+    .section__title {
+        font-size: 1.8rem;
     }
     
     .hero__tagline {
-        font-size: 2rem;
+        font-size: 1.6rem;
     }
     
-    .section {
-        padding: var(--space-lg) 0;
+    .floating-form__title {
+        font-size: 1.5rem;
     }
     
+    .form__row {
+        flex-direction: column;
+        gap: var(--space-sm);
+    }
+    
+    .footer__content {
+        gap: var(--space-sm);
+    }
+    
+    .partner {
+        flex: 0 0 100%;
+    }
+
+    /* Improve section spacing */
+    .section__header {
+        margin-bottom: var(--space-md);
+    }
+
+    /* Make buttons more tappable */
     .btn {
-        padding: 10px 20px;
+        padding: 14px 24px;
+        font-size: 1rem;
     }
     
-    .form__group--half {
-        grid-template-columns: 1fr;
+    /* Fix spacing in contact form */
+    .contact__form input,
+    .contact__form textarea {
+        padding: 14px;
+    }
+}
+
+/* Fix for the back to top button on mobile */
+@media (max-width: 768px) {
+    .back-to-top {
+        width: 40px;
+        height: 40px;
+        bottom: 20px;
+        right: 20px;
+        font-size: 1rem;
+    }
+}
+
+/* Form validation improvements for mobile */
+@media (max-width: 768px) {
+    .error-message {
+        font-size: 0.75rem;
+    }
+    
+    .success-message {
+        padding: var(--space-xs);
+        font-size: 0.9rem;
+    }
+}
+
+/* Fix for fixed header on mobile */
+@media (max-width: 768px) {
+    .header {
+        height: 70px;
+    }
+    
+    .header.scrolled {
+        height: 60px;
+    }
+    
+    html {
+        scroll-padding-top: 80px;
     }
 }
 
