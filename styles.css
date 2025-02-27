@@ -735,7 +735,7 @@ section {
 }
 
 .news__content {
-    padding: var(--space-md);
+    padding: var(--space-sm);
     flex-grow: 1;
     display: flex;
     flex-direction: column;
@@ -756,7 +756,7 @@ section {
     color: var(--color-gray);
     font-size: 0.9rem;
     font-style: italic;
-    margin-top: auto;
+    margin: var(--shadow-sm);
 }
 
 /* ======= CONTACT SECTION ======= */
