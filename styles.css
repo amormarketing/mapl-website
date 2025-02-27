@@ -1064,29 +1064,33 @@ section {
         z-index: 1002;
     }
     
-    /* Hero Section Improvements */
+    /* Hero structure for mobile */
     .hero {
-        padding-top: var(--space-md);
-        padding-bottom: var(--space-md);
+        display: flex;
+        flex-direction: column;
         height: auto;
         min-height: 500px;
+        padding-top: var(--space-md);
+        padding-bottom: var(--space-md);
     }
     
-    /* Hero container layout */
+    /* Container takes full width */
     .hero .container {
+        width: 100%;
         flex-direction: column;
-        align-items: center;
+        padding: 0 var(--space-md);
+        gap: var(--space-md);
     }
     
-    /* Hero content and form positioning */
+    /* Content section - appears first */
     .hero__content {
+        order: 1;
+        margin: 0 auto;
+        text-align: center;
         max-width: 100%;
         padding-right: 0;
-        text-align: center;
-        margin-left: 0;
-        order: 1;
     }
-    
+        
     .hero__form-container {
         width: 100%;
         order: 2;
@@ -1095,20 +1099,69 @@ section {
     /* Fix hero social icons position */
     .hero__social {
         position: static;
-        order: 3;
+        order: 2;
         width: 100%;
         display: flex;
         justify-content: center;
-        margin-top: var(--space-md);
+        margin-top: 0;
+        margin-bottom: var(--space-md);
+        bottom: auto;
+        right: auto;
     }
     
+    .hero__social a {
+        width: 45px;
+        height: 45px;
+        font-size: 1.3rem;
+        margin: 0 5px;
+    }
+
     .hero__tagline {
         font-size: 2rem;
     }
     
+    .hero__subtitle {
+        font-size: 1.3rem;
+    }
+    
+    /* Form container - appears second */
+    .hero__form-container {
+        order: 2;
+        width: 100%;
+        flex: initial;
+    }
+    
     .floating-form {
         width: 100%;
-        animation: none; /* Remove float animation on mobile */
+        animation: none;
+    }
+    
+    /* Fix form inputs for mobile */
+    .form__row {
+        flex-direction: column;
+    }
+    
+    .form__row input {
+        margin-bottom: var(--space-xs);
+    }
+    
+    /* Social icons - appears third (below form) */
+    .hero__social {
+        position: static;
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        margin: var(--space-md) 0;
+        order: 3;
+        bottom: auto;
+        right: auto;
+    }
+    
+    .hero__social a {
+        width: 45px;
+        height: 45px;
+        margin: 0 10px;
+        font-size: 1.2rem;
     }
     
     /* About Section Improvements */
