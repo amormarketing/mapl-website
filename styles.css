@@ -781,7 +781,7 @@ section {
 }
 
 .contact__social, .contact__projects {
-    margin-bottom: var(--space-lg);
+    margin-bottom: var(--space-xs);
 }
 
 .contact__social-title, .contact__projects-title {
@@ -1123,6 +1123,7 @@ section {
     
     .hero__subtitle {
         font-size: 1.3rem;
+        margin-bottom: 0.5rem;
     }
     
     /* Form container - appears second */
