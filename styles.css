@@ -1072,38 +1072,43 @@ section {
         min-height: 500px;
     }
     
+    /* Hero container layout */
     .hero .container {
         flex-direction: column;
-        gap: var(--space-lg);
+        align-items: center;
     }
     
+    /* Hero content and form positioning */
     .hero__content {
         max-width: 100%;
         padding-right: 0;
         text-align: center;
         margin-left: 0;
+        order: 1;
+    }
+    
+    .hero__form-container {
+        width: 100%;
+        order: 2;
+    }
+    
+    /* Fix hero social icons position */
+    .hero__social {
+        position: static;
+        order: 3;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin-top: var(--space-md);
     }
     
     .hero__tagline {
         font-size: 2rem;
     }
     
-    .hero__form-container {
-        width: 100%;
-    }
-    
     .floating-form {
         width: 100%;
         animation: none; /* Remove float animation on mobile */
-    }
-    
-    /* Fix hero social icons position */
-    .hero__social {
-        position: relative;
-        bottom: auto;
-        right: auto;
-        margin-top: var(--space-md);
-        justify-content: center;
     }
     
     /* About Section Improvements */
