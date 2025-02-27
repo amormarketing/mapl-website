@@ -781,7 +781,7 @@ section {
 }
 
 .contact__social, .contact__projects {
-    margin-bottom: var(--space-xs);
+    margin-bottom: var(--space-sm);
 }
 
 .contact__social-title, .contact__projects-title {
@@ -839,7 +839,7 @@ section {
 
 .contact__form {
     background-color: var(--color-white);
-    padding: var(--space-lg);
+    padding: var(--space-md);
     border-radius: var(--radius-md);
     box-shadow: var(--shadow-md);
 }
