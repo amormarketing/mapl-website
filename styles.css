@@ -343,7 +343,7 @@ section {
 
 .hero__content {
     flex: 1;
-    max-width: 600px;
+    max-width: 700px;
     margin-left: auto; /* Push to the right */
     padding-right: var(--space-md);
 }
@@ -604,15 +604,33 @@ section {
     transition: all var(--transition-medium);
 }
 
+/* Hover effect for all cards */
 .impact__card:hover {
     transform: translateY(-5px);
     box-shadow: var(--shadow-md);
+    background-color: var(--color-primary-light);
+    color: var(--color-white);
 }
 
 .impact__card:hover::before {
     width: 10px;
+    background-color: var(--color-secondary);
 }
 
+/* Special styling for hover state text colors */
+.impact__card:hover .impact__title {
+    color: var(--color-white);
+}
+
+.impact__card:hover .impact__text {
+    color: var(--color-light);
+}
+
+.impact__card:hover .impact__icon {
+    color: var(--color-white);
+}
+
+/* Keep the highlighted card styles */
 .impact__card--highlight {
     background-color: var(--color-primary-light);
     color: var(--color-white);
@@ -622,30 +640,12 @@ section {
     background-color: var(--color-secondary);
 }
 
-.impact__icon {
-    font-size: 2.5rem;
-    color: var(--color-secondary);
-    margin-bottom: var(--space-sm);
-}
-
 .impact__card--highlight .impact__icon {
     color: var(--color-white);
 }
 
-.impact__title {
-    font-size: 1.3rem;
-    margin-bottom: var(--space-sm);
-    color: var(--color-primary-dark);
-}
-
 .impact__card--highlight .impact__title {
     color: var(--color-white);
-}
-
-.impact__text {
-    color: var(--color-gray);
-    font-size: 0.95rem;
-    margin-bottom: 0;
 }
 
 .impact__card--highlight .impact__text {
