@@ -373,7 +373,7 @@ function initializeSmoothScroll() {
             if (targetElement) {
                 const headerHeight = document.querySelector('.header')?.offsetHeight || 0;
                 // Add extra padding to ensure section titles aren't hidden beneath the header
-                const extraPadding = 20;
+                const extraPadding = -50;
                 const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight - extraPadding;
                 
                 window.scrollTo({
