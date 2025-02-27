@@ -9,9 +9,9 @@
     --color-primary: #1a4c8a;
     --color-primary-light: #2566b8;
     --color-primary-dark: #0f3b75;
-    --color-secondary: #f0b429;
-    --color-secondary-light: #ffc547;
-    --color-secondary-dark: #e09b0f;
+    --color-secondary: #c3cbeb;
+    --color-secondary-light: #e5e8f6;
+    --color-secondary-dark: #5467c1;
     --color-dark: #222831;
     --color-dark-medium: #393e46;
     --color-gray: #717780;
@@ -186,10 +186,10 @@ section {
 }
 
 .btn--secondary:hover {
-    background-color: var(--color-secondary-light);
+    background-color: var(--color-secondary-dark);
     box-shadow: var(--shadow-md);
     transform: translateY(-2px);
-    color: var(--color-dark);
+    color: var(--color-secondary-light);
 }
 
 .btn--light {
