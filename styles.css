@@ -1016,6 +1016,7 @@ section {
     .achievements__content,
     .contact__content {
         flex-direction: column;
+        gap: var(--space-xs);
     }
     
     .about__image {
