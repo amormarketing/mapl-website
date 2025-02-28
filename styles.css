@@ -932,10 +932,35 @@ section {
     border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
+/* Updated footer bottom styles */
+.footer__bottom-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--space-md);
+}
+
 .footer__copyright {
     color: var(--color-gray-light);
     font-size: 0.8rem;
     margin-bottom: 0;
+    text-align: left;
+}
+
+.footer__attribution {
+    text-align: right;
+}
+
+.attribution-image {
+    max-width: 180px;
+    height: auto;
+    opacity: 0.8;
+    transition: opacity var(--transition-fast);
+}
+
+.attribution-image:hover {
+    opacity: 1;
 }
 
 /* ======= BACK TO TOP BUTTON ======= */
@@ -1126,378 +1151,394 @@ section {
         margin-bottom: 0.5rem;
     }
     
-    /* Form container - appears second */
-    .hero__form-container {
-        order: 2;
-        width: 100%;
-        flex: initial;
-    }
-    
-    .floating-form {
-        width: 100%;
-        animation: none;
-    }
-    
-    /* Fix form inputs for mobile */
-    .form__row {
-        flex-direction: column;
-    }
-    
-    .form__row input {
-        margin-bottom: var(--space-xs);
-    }
-    
-    /* Social icons - appears third (below form) */
-    .hero__social {
-        position: static;
-        display: flex;
-        justify-content: center;
-        width: 100%;
-        margin: var(--space-md) 0;
-        order: 3;
-        bottom: auto;
-        right: auto;
-    }
-    
-    .hero__social a {
-        width: 45px;
-        height: 45px;
-        margin: 0 10px;
-        font-size: 1.2rem;
-    }
-    
-    /* About Section Improvements */
-    .about__content {
-        flex-direction: column;
-    }
-    
-    .about__image {
-        margin-bottom: var(--space-md);
-    }
-    
-    .about__subtitle {
-        font-size: 1.4rem;
-        text-align: center;
-    }
-    
-    .about__text .btn {
-        display: block;
-        width: 100%;
-        text-align: center;
-    }
-    
-    /* Achievements Section Improvements */
-    .achievements__content {
-        flex-direction: column-reverse;
-    }
-    
-    .achievements__image {
-        margin-bottom: var(--space-md);
-    }
-    
-    .achievements__title {
-        text-align: center;
-    }
-    
-    .achievements__list {
-        padding-left: 0;
-    }
-    
-    .achievements__list li {
-        padding-left: 1.5rem;
-    }
-    
-    /* Impact Areas Section Improvements */
-    .impact__grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .impact__card {
-        height: auto;
-    }
-    
-    /* Partners Section Improvements */
-    .partners__grid {
-        gap: var(--space-md);
-    }
-    
-    .partner {
-        flex: 0 0 40%;
-    }
-    
-    .partner__logo {
-        max-width: 100px;
-    }
-    
-    /* News Section Improvements */
-    .news__grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .news__card {
-        margin-bottom: var(--space-md);
-    }
-    
-    /* Contact Section Improvements */
-    .contact__content {
-        flex-direction: column;
-    }
-    
-    .contact__form-container {
-        width: 100%;
-    }
-    
-    .contact__form {
-        padding: var(--space-md);
-    }
-    
-    .form__group--half {
-        grid-template-columns: 1fr;
-        gap: var(--space-sm);
-    }
-    
-    .contact__logos {
-        justify-content: center;
-    }
-    
-    /* Footer improvements */
-    .footer__content {
-        flex-direction: column;
-        text-align: center;
-    }
-    
-    .footer__social {
-        justify-content: center;
-        margin-top: var(--space-sm);
-    }
+/* Form container - appears second */
+.hero__form-container {
+    order: 2;
+    width: 100%;
+    flex: initial;
+}
+
+.floating-form {
+    width: 100%;
+    animation: none;
+}
+
+/* Fix form inputs for mobile */
+.form__row {
+    flex-direction: column;
+}
+
+.form__row input {
+    margin-bottom: var(--space-xs);
+}
+
+/* Social icons - appears third (below form) */
+.hero__social {
+    position: static;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: var(--space-md) 0;
+    order: 3;
+    bottom: auto;
+    right: auto;
+}
+
+.hero__social a {
+    width: 45px;
+    height: 45px;
+    margin: 0 10px;
+    font-size: 1.2rem;
+}
+
+/* About Section Improvements */
+.about__content {
+    flex-direction: column;
+}
+
+.about__image {
+    margin-bottom: var(--space-md);
+}
+
+.about__subtitle {
+    font-size: 1.4rem;
+    text-align: center;
+}
+
+.about__text .btn {
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+
+/* Achievements Section Improvements */
+.achievements__content {
+    flex-direction: column-reverse;
+}
+
+.achievements__image {
+    margin-bottom: var(--space-md);
+}
+
+.achievements__title {
+    text-align: center;
+}
+
+.achievements__list {
+    padding-left: 0;
+}
+
+.achievements__list li {
+    padding-left: 1.5rem;
+}
+
+/* Impact Areas Section Improvements */
+.impact__grid {
+    grid-template-columns: 1fr;
+}
+
+.impact__card {
+    height: auto;
+}
+
+/* Partners Section Improvements */
+.partners__grid {
+    gap: var(--space-md);
+}
+
+.partner {
+    flex: 0 0 40%;
+}
+
+.partner__logo {
+    max-width: 100px;
+}
+
+/* News Section Improvements */
+.news__grid {
+    grid-template-columns: 1fr;
+}
+
+.news__card {
+    margin-bottom: var(--space-md);
+}
+
+/* Contact Section Improvements */
+.contact__content {
+    flex-direction: column;
+}
+
+.contact__form-container {
+    width: 100%;
+}
+
+.contact__form {
+    padding: var(--space-md);
+}
+
+.form__group--half {
+    grid-template-columns: 1fr;
+    gap: var(--space-sm);
+}
+
+.contact__logos {
+    justify-content: center;
+}
+
+/* Footer improvements */
+.footer__content {
+    flex-direction: column;
+    text-align: center;
+}
+
+.footer__social {
+    justify-content: center;
+    margin-top: var(--space-sm);
+}
+
+/* Make the footer responsive */
+.footer__bottom-content {
+    flex-direction: column;
+    gap: var(--space-sm);
+}
+
+.footer__copyright, 
+.footer__attribution {
+    text-align: center;
+    width: 100%;
+}
+
+.attribution-image {
+    max-width: 150px;
+}
 }
 
 /* Further improvements for very small screens */
 @media (max-width: 480px) {
-    html {
-        font-size: 14px;
-    }
-    
-    section {
-        padding: var(--space-md) 0;
-    }
-    
-    .container {
-        padding: 0 var(--space-sm);
-    }
-    
-    .section__title {
-        font-size: 1.8rem;
-    }
-    
-    .hero__tagline {
-        font-size: 1.6rem;
-    }
-    
-    .floating-form__title {
-        font-size: 1.5rem;
-    }
-    
-    .form__row {
-        flex-direction: column;
-        gap: var(--space-sm);
-    }
-    
-    .footer__content {
-        gap: var(--space-sm);
-    }
-    
-    .partner {
-        flex: 0 0 100%;
-    }
+html {
+    font-size: 14px;
+}
 
-    /* Improve section spacing */
-    .section__header {
-        margin-bottom: var(--space-md);
-    }
+section {
+    padding: var(--space-md) 0;
+}
 
-    /* Make buttons more tappable */
-    .btn {
-        padding: 14px 24px;
-        font-size: 1rem;
-    }
-    
-    /* Fix spacing in contact form */
-    .contact__form input,
-    .contact__form textarea {
-        padding: 14px;
-    }
+.container {
+    padding: 0 var(--space-sm);
+}
+
+.section__title {
+    font-size: 1.8rem;
+}
+
+.hero__tagline {
+    font-size: 1.6rem;
+}
+
+.floating-form__title {
+    font-size: 1.5rem;
+}
+
+.form__row {
+    flex-direction: column;
+    gap: var(--space-sm);
+}
+
+.footer__content {
+    gap: var(--space-sm);
+}
+
+.partner {
+    flex: 0 0 100%;
+}
+
+/* Improve section spacing */
+.section__header {
+    margin-bottom: var(--space-md);
+}
+
+/* Make buttons more tappable */
+.btn {
+    padding: 14px 24px;
+    font-size: 1rem;
+}
+
+/* Fix spacing in contact form */
+.contact__form input,
+.contact__form textarea {
+    padding: 14px;
+}
 }
 
 /* Fix for the back to top button on mobile */
 @media (max-width: 768px) {
-    .back-to-top {
-        width: 40px;
-        height: 40px;
-        bottom: 20px;
-        right: 20px;
-        font-size: 1rem;
-    }
+.back-to-top {
+    width: 40px;
+    height: 40px;
+    bottom: 20px;
+    right: 20px;
+    font-size: 1rem;
+}
 }
 
 /* Form validation improvements for mobile */
 @media (max-width: 768px) {
-    .error-message {
-        font-size: 0.75rem;
-    }
-    
-    .success-message {
-        padding: var(--space-xs);
-        font-size: 0.9rem;
-    }
+.error-message {
+    font-size: 0.75rem;
+}
+
+.success-message {
+    padding: var(--space-xs);
+    font-size: 0.9rem;
+}
 }
 
 /* Fix for fixed header on mobile */
 @media (max-width: 768px) {
-    .header {
-        height: 70px;
-    }
-    
-    .header.scrolled {
-        height: 60px;
-    }
-    
-    html {
-        scroll-padding-top: 80px;
-    }
+.header {
+    height: 70px;
+}
+
+.header.scrolled {
+    height: 60px;
+}
+
+html {
+    scroll-padding-top: 80px;
+}
 }
 
 /* ======= ANIMATIONS ======= */
 @keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+from {
+    opacity: 0;
+    transform: translateY(20px);
+}
+to {
+    opacity: 1;
+    transform: translateY(0);
+}
 }
 
 .fade-in {
-    animation: fadeIn 1s ease forwards;
+animation: fadeIn 1s ease forwards;
 }
 
 /* Animation delays */
 .delay-100 {
-    animation-delay: 0.1s;
+animation-delay: 0.1s;
 }
 
 .delay-200 {
-    animation-delay: 0.2s;
+animation-delay: 0.2s;
 }
 
 .delay-300 {
-    animation-delay: 0.3s;
+animation-delay: 0.3s;
 }
 
 .delay-400 {
-    animation-delay: 0.4s;
+animation-delay: 0.4s;
 }
 
 .delay-500 {
-    animation-delay: 0.5s;
+animation-delay: 0.5s;
 }
 
 /* ======= UTILITY CLASSES ======= */
 .text-center {
-    text-align: center;
+text-align: center;
 }
 
 .text-right {
-    text-align: right;
+text-align: right;
 }
 
 .mb-0 {
-    margin-bottom: 0;
+margin-bottom: 0;
 }
 
 .mb-1 {
-    margin-bottom: var(--space-xs);
+margin-bottom: var(--space-xs);
 }
 
 .mb-2 {
-    margin-bottom: var(--space-sm);
+margin-bottom: var(--space-sm);
 }
 
 .mb-3 {
-    margin-bottom: var(--space-md);
+margin-bottom: var(--space-md);
 }
 
 .mb-4 {
-    margin-bottom: var(--space-lg);
+margin-bottom: var(--space-lg);
 }
 
 .mt-1 {
-    margin-top: var(--space-xs);
+margin-top: var(--space-xs);
 }
 
 .mt-2 {
-    margin-top: var(--space-sm);
+margin-top: var(--space-sm);
 }
 
 .mt-3 {
-    margin-top: var(--space-md);
+margin-top: var(--space-md);
 }
 
 .mt-4 {
-    margin-top: var(--space-lg);
+margin-top: var(--space-lg);
 }
 
 /* JS-related styles */
 .js-hidden {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity var(--transition-medium), transform var(--transition-medium);
+opacity: 0;
+transform: translateY(20px);
+transition: opacity var(--transition-medium), transform var(--transition-medium);
 }
 
 .js-visible {
-    opacity: 1;
-    transform: translateY(0);
+opacity: 1;
+transform: translateY(0);
 }
 
 .slide {
-    opacity: 0;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    transition: opacity var(--transition-slow);
+opacity: 0;
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+transition: opacity var(--transition-slow);
 }
 
 .slide.active {
-    opacity: 1;
-    z-index: 5;
+opacity: 1;
+z-index: 5;
 }
 
 /* Style for form validation */
 .form-error {
-    border-color: #e74c3c !important;
+border-color: #e74c3c !important;
 }
 
 .error-message {
-    color: #e74c3c;
-    font-size: 0.8rem;
-    margin-top: 5px;
+color: #e74c3c;
+font-size: 0.8rem;
+margin-top: 5px;
 }
 
 /* Success message styles */
 .success-message {
-    background-color: #dff0d8;
-    color: #3c763d;
-    padding: var(--space-sm);
-    border-radius: var(--radius-sm);
-    margin-bottom: var(--space-md);
-    display: none;
+background-color: #dff0d8;
+color: #3c763d;
+padding: var(--space-sm);
+border-radius: var(--radius-sm);
+margin-bottom: var(--space-md);
+display: none;
 }
 
 .success-message.visible {
-    display: block;
-    animation: fadeIn 0.5s ease;
+display: block;
+animation: fadeIn 0.5s ease;
 }
