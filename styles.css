@@ -889,7 +889,7 @@ section {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: var(--space-lg);
+    margin-bottom: var(--space-sm);
     flex-wrap: wrap;
     gap: var(--space-md);
 }
@@ -928,7 +928,7 @@ section {
 
 .footer__bottom {
     text-align: center;
-    padding-top: var(--space-md);
+    padding-top: var(--space-sm);
     border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
