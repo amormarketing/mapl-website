@@ -12,6 +12,14 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeSmoothScroll();
     initializePartnerLogos();
     initializeBackToTop();
+    
+    // Initialize EmailJS if it's available
+    if (window.emailjs) {
+        console.log("EmailJS is loaded and available");
+        emailjs.init("Cj7onGuIZJeiXYXED");
+    } else {
+        console.error("EmailJS is not loaded properly");
+    }
 });
 
 /**
@@ -179,6 +187,7 @@ function initializeScrollAnimations() {
 /**
  * Contact form validation and submission
  * Handles both the hero contact form and the footer contact form
+ * Now with EmailJS integration
  */
 function initializeContactForms() {
     const contactForm = document.getElementById('contactForm');
@@ -200,7 +209,7 @@ function initializeContactForms() {
         comment: 'Please enter a comment (10-500 characters)'
     };
     
-    // Process main contact form
+    // Process main contact form (footer form)
     if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
@@ -220,7 +229,7 @@ function initializeContactForms() {
                 isValid = validateField(email, patterns.email, errorMessages.email) && isValid;
                 isValid = validateField(message, patterns.message, errorMessages.message) && isValid;
                 
-                if (isValid) {
+                if (isValid && window.emailjs) {
                     // Show loading state
                     const submitButton = contactForm.querySelector('button[type="submit"]');
                     if (submitButton) {
@@ -228,31 +237,37 @@ function initializeContactForms() {
                         submitButton.textContent = 'Sending...';
                         submitButton.disabled = true;
                         
-                        // Simulate form submission (replace with actual AJAX call)
-                        setTimeout(() => {
-                            // Show success message
-                            const successMessage = document.createElement('div');
-                            successMessage.className = 'success-message';
-                            successMessage.textContent = 'Thank you for your message! I will get back to you soon.';
-                            
-                            contactForm.prepend(successMessage);
-                            successMessage.classList.add('visible');
-                            
-                            // Reset form
+                        // Collect form data
+                        const formData = {
+                            first_name: firstName.value,
+                            last_name: lastName.value,
+                            email: email.value,
+                            message: message.value,
+                            form_name: 'Footer Contact Form'
+                        };
+                        
+                        console.log("Sending footer form data:", formData);
+                        
+                        // Send the form using EmailJS
+                        emailjs.send(
+                            'service_ijhm2nv',
+                            'template_nfgh15s',
+                            formData
+                        )
+                        .then(function(response) {
+                            console.log("EmailJS Success Response:", response);
+                            showToast('Thank you! Your message has been sent.', 'success');
                             contactForm.reset();
-                            
-                            // Reset button
+                        })
+                        .catch(function(error) {
+                            console.error('EmailJS Error:', error);
+                            showToast('Oops! Something went wrong.', 'error');
+                        })
+                        .finally(function() {
+                            // Reset button state
                             submitButton.textContent = originalText;
                             submitButton.disabled = false;
-                            
-                            // Remove success message after 5 seconds
-                            setTimeout(() => {
-                                successMessage.classList.remove('visible');
-                                setTimeout(() => {
-                                    successMessage.remove();
-                                }, 500);
-                            }, 5000);
-                        }, 1500);
+                        });
                     }
                 }
             }
@@ -277,7 +292,7 @@ function initializeContactForms() {
                 isValid = validateField(email, patterns.email, errorMessages.email) && isValid;
                 isValid = validateField(comment, patterns.message, errorMessages.comment) && isValid;
                 
-                if (isValid) {
+                if (isValid && window.emailjs) {
                     // Show loading state
                     const submitButton = heroContactForm.querySelector('button[type="submit"]');
                     if (submitButton) {
@@ -285,31 +300,37 @@ function initializeContactForms() {
                         submitButton.textContent = 'Sending...';
                         submitButton.disabled = true;
                         
-                        // Simulate form submission (replace with actual AJAX call)
-                        setTimeout(() => {
-                            // Show success message
-                            const successMessage = document.createElement('div');
-                            successMessage.className = 'success-message';
-                            successMessage.textContent = 'Thank you for your message! I will get back to you soon.';
-                            
-                            heroContactForm.prepend(successMessage);
-                            successMessage.classList.add('visible');
-                            
-                            // Reset form
+                        // Collect form data
+                        const formData = {
+                            first_name: firstName.value,
+                            last_name: "",
+                            email: email.value,
+                            message: comment.value,
+                            form_name: 'Hero Contact Form'
+                        };
+                        
+                        console.log("Sending hero form data:", formData);
+                        
+                        // Send the form using EmailJS
+                        emailjs.send(
+                            'service_ijhm2nv',
+                            'template_jm90lfe',
+                            formData
+                        )
+                        .then(function(response) {
+                            console.log("EmailJS Success Response:", response);
+                            showToast('Thank you! Your message has been sent.', 'success');
                             heroContactForm.reset();
-                            
-                            // Reset button
+                        })
+                        .catch(function(error) {
+                            console.error('EmailJS Error:', error);
+                            showToast('Oops! Something went wrong.', 'error');
+                        })
+                        .finally(function() {
+                            // Reset button state
                             submitButton.textContent = originalText;
                             submitButton.disabled = false;
-                            
-                            // Remove success message after 5 seconds
-                            setTimeout(() => {
-                                successMessage.classList.remove('visible');
-                                setTimeout(() => {
-                                    successMessage.remove();
-                                }, 500);
-                            }, 5000);
-                        }, 1500);
+                        });
                     }
                 }
             }
@@ -405,4 +426,72 @@ function initializePartnerLogos() {
             partner.style.transform = 'translateY(0)';
         }, 300 + (index * 150));
     });
+}
+
+/**
+ * Create a simple toast notification system
+ * @param {string} message - The message to display
+ * @param {string} type - The type of toast ('success' or 'error')
+ */
+function showToast(message, type) {
+    // Create toast container if it doesn't exist
+    let toastContainer = document.getElementById('toast-container');
+    if (!toastContainer) {
+        toastContainer = document.createElement('div');
+        toastContainer.id = 'toast-container';
+        toastContainer.style.position = 'fixed';
+        toastContainer.style.bottom = '20px';
+        toastContainer.style.right = '20px';
+        toastContainer.style.zIndex = '1000';
+        document.body.appendChild(toastContainer);
+    }
+    
+    // Create toast element
+    const toast = document.createElement('div');
+    toast.style.minWidth = '250px';
+    toast.style.margin = '10px';
+    toast.style.padding = '15px';
+    toast.style.borderRadius = '5px';
+    toast.style.boxShadow = '0 0 10px rgba(0,0,0,0.2)';
+    toast.style.display = 'flex';
+    toast.style.alignItems = 'center';
+    toast.style.transition = 'all 0.3s ease';
+    toast.style.animation = 'fadeIn 0.3s, fadeOut 0.3s 2.7s';
+    
+    // Set color based on message type
+    if (type === 'success') {
+        toast.style.backgroundColor = '#3F51B5'; // Using your site's primary color
+        toast.style.color = 'white';
+    } else {
+        toast.style.backgroundColor = '#F44336';
+        toast.style.color = 'white';
+    }
+    
+    toast.textContent = message;
+    
+    // Add CSS for animations
+    if (!document.getElementById('toast-styles')) {
+        const style = document.createElement('style');
+        style.id = 'toast-styles';
+        style.innerHTML = `
+            @keyframes fadeIn {
+                from { opacity: 0; transform: translateY(20px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+            
+            @keyframes fadeOut {
+                from { opacity: 1; transform: translateY(0); }
+                to { opacity: 0; transform: translateY(-20px); }
+            }
+        `;
+        document.head.appendChild(style);
+    }
+    
+    // Add to container
+    toastContainer.appendChild(toast);
+    
+    // Remove after 3 seconds
+    setTimeout(() => {
+        toast.remove();
+    }, 3000);
 }
