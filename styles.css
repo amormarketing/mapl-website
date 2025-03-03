@@ -88,10 +88,6 @@ h3 {
     font-size: 1.75rem;
 }
 
-p {
-    margin-bottom: var(--space-md);
-}
-
 a {
     color: var(--color-primary);
     text-decoration: none;
@@ -787,7 +783,7 @@ section {
 .contact__social-title, .contact__projects-title {
     font-size: 1.2rem;
     color: var(--color-primary-dark);
-    margin-bottom: var(--space-sm);
+    margin-bottom: var(--space-xs);
 }
 
 .contact__links {
